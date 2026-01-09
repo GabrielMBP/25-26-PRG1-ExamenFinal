@@ -21,7 +21,7 @@ public class GestorTareasRefactorizado {
             int opcion = leerEntero("Seleccione una opción: ");
 
             if (opcion == 1) {
-                añadirTarea(){}
+                añadirTarea(){
             } else if (opcion == 2) {
                 marcarTareaCompletada();
             } else if (opcion == 3) {
@@ -67,6 +67,20 @@ public class GestorTareasRefactorizado {
         } else {
             System.out.println("ERROR: La lista de tareas está llena.");
         }
+    }
+    
+    private static String seleccionarPrioridad() {
+        System.out.println("Seleccione prioridad: [1] Alta, [2] Media, [3] Baja");
+        int seleccion = leerEntero("Opción: ");
+        String prioridadSeleccionada = "Media";
+        
+        if (seleccion == 1) {
+            prioridadSeleccionada = "Alta";
+        } else if (seleccion == 3) {
+            prioridadSeleccionada = "Baja";
+        }
+        
+        return prioridadSeleccionada;
     }
 
 }
