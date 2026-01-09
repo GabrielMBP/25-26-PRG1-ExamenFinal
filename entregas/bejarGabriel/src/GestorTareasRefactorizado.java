@@ -118,6 +118,29 @@ public class GestorTareasRefactorizado {
             System.out.println("(No tienes tareas pendientes)");
         }
     }
+    
+    private static void mostrarEstadisticas() {
+        int completadas = 0;
+        
+        for (int i = 0; i < cantidadTareas; i++) {
+            if (tareasCompletadas[i]) {
+                completadas++;
+            }
+        }
+        
+        int pendientes = cantidadTareas - completadas;
+        double porcentaje = 0.0;
+        
+        if (cantidadTareas > 0) {
+            porcentaje = ((double) completadas / cantidadTareas) * 100;
+        }
+
+        System.out.println("--- Estadísticas de Progreso ---");
+        System.out.println("Total tareas: " + cantidadTareas);
+        System.out.println("Completadas:  " + completadas);
+        System.out.println("Pendientes:   " + pendientes);
+        System.out.println("Progreso:   " + porcentaje);
+    }
 
 
 }
