@@ -102,6 +102,22 @@ public class GestorTareasRefactorizado {
             System.out.println("No hay tareas registradas.");
         }
     }
+    
+    private static void verTareasPendientes() {
+        System.out.println("--- Tareas Pendientes ---");
+        boolean hayPendientes = false;
+
+        for (int i = 0; i < cantidadTareas; i++) {
+            if (!tareasCompletadas[i]) {
+                imprimirTarea(i);
+                hayPendientes = true;
+            }
+        }
+
+        if (!hayPendientes) {
+            System.out.println("(No tienes tareas pendientes)");
+        }
+    }
 
 
 }
