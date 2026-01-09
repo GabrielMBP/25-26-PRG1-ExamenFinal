@@ -40,6 +40,7 @@ public class GestorTareasRefactorizado {
         
         scanner.close();
     }
+}
 
     private static void mostrarMenu() {
         System.out.println("---------------------------");
