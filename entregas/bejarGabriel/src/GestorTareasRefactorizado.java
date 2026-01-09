@@ -82,5 +82,26 @@ public class GestorTareasRefactorizado {
         
         return prioridadSeleccionada;
     }
+    
+    private static void marcarTareaCompletada() {
+        if (cantidadTareas > 0) {
+            listarTodasLasTareas();
+            int indice = leerEntero("Número de tarea a completar: ") - 1;
+
+            if (esIndiceValido(indice)) {
+                if (tareasCompletadas[indice]) {
+                    System.out.println("Esa tarea ya estaba completada.");
+                } else {
+                    tareasCompletadas[indice] = true;
+                    System.out.println("¡Tarea completada!");
+                }
+            } else {
+                System.out.println("Número de tarea inválido.");
+            }
+        } else {
+            System.out.println("No hay tareas registradas.");
+        }
+    }
+
 
 }
