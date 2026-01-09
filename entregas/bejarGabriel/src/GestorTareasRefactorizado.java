@@ -21,7 +21,7 @@ public class GestorTareasRefactorizado {
             int opcion = leerEntero("Seleccione una opción: ");
 
             if (opcion == 1) {
-                anadirTarea();
+                añadirTarea(){}
             } else if (opcion == 2) {
                 marcarTareaCompletada();
             } else if (opcion == 3) {
@@ -39,6 +39,34 @@ public class GestorTareasRefactorizado {
         }
         
         scanner.close();
+    }
+
+    private static void mostrarMenu() {
+        System.out.println("---------------------------");
+        System.out.println("[1] Añadir nueva tarea");
+        System.out.println("[2] Marcar tarea como completada");
+        System.out.println("[3] Ver tareas pendientes");
+        System.out.println("[4] Ver estadísticas");
+        System.out.println("[5] Salir");
+        System.out.println("---------------------------");
+    }
+
+    private static void añadirTarea(){
+        if (cantidadTareas < CAPACIDAD_MAXIMA) {
+            System.out.print("Descripción de la tarea: ");
+            String descripcion = scanner.nextLine();
+            
+            String prioridad = seleccionarPrioridad();
+
+            descripciones[cantidadTareas] = descripcion;
+            prioridades[cantidadTareas] = prioridad;
+            tareasCompletadas[cantidadTareas] = false; 
+            
+            cantidadTareas++;
+            System.out.println("Tarea guardada con éxito.");
+        } else {
+            System.out.println("ERROR: La lista de tareas está llena.");
+        }
     }
 
 }
