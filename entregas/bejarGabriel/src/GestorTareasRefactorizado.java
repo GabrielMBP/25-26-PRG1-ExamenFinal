@@ -142,5 +142,42 @@ public class GestorTareasRefactorizado {
         System.out.println("Progreso:   " + porcentaje);
     }
 
+    private static void listarTodasLasTareas() {
+        for (int i = 0; i < cantidadTareas; i++) {
+            String estado = "[ ]";
+            if (tareasCompletadas[i]) {
+                estado = "[X]";
+            }
+            System.out.println((i + 1) + ". " + estado + " " + descripciones[i] + " (" + prioridades[i] + ")");
+        }
+    }
+
+    private static void imprimirTarea(int i) {
+        System.out.println("- " + descripciones[i] + " [Prioridad: " + prioridades[i] + "]");
+    }
+
+    private static boolean esIndiceValido(int indice) {
+        return (indice >= 0 && indice < cantidadTareas);
+    }
+
+    private static int leerEntero(String mensaje) {
+        System.out.print(mensaje);
+        boolean entradaValida = false;
+        int numero = 0;
+
+        while (!entradaValida) {
+            if (scanner.hasNextInt()) {
+                numero = scanner.nextInt();
+                entradaValida = true;
+            } else {
+                System.out.println("Por favor, introduce un número válido.");
+                scanner.next();
+                System.out.print(mensaje);
+            }
+        }
+        
+        scanner.nextLine();
+        return numero;
+    }
 
 }
